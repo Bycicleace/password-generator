@@ -15,8 +15,8 @@
 */
 
 // Prompt for length of password between 8 and 128 characters.
+// Returns succesfully prompted length
 var getPasswordLength = function() {
-  // Validate response.
   var passwordLength = 0;
   while (passwordLength < 8 || passwordLength > 128) {
     passwordLength = parseInt(prompt("Enter desired length of password (8 - 128)"));
@@ -28,6 +28,12 @@ var getPasswordLength = function() {
   }
   console.log("Password Length chosen: " + passwordLength.toString())
   return passwordLength
+}
+
+// Confirm if lowercase letters should be used.
+var confirmLowerCase = function() {
+  return confirm("Use Lowercase characters?");
+
 }
 
 
