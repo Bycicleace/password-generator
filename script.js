@@ -14,6 +14,21 @@
 
 */
 
+// Prompt for length of password between 8 and 128 characters.
+var getPasswordLength = function() {
+  // Validate response.
+  var passwordLength = 0;
+  while (passwordLength < 8 || passwordLength > 128) {
+    passwordLength = parseInt(prompt("Enter desired length of password (8 - 128)"));
+    // Checks for empty response, null response, and anything that is not a number.
+    if (passwordLength === null || passwordLength === "" || isNaN(passwordLength)) {
+      // Sets length to 0, which will reprompt.
+      passwordLength = 0;
+    }
+  }
+  console.log("Password Length chosen: " + passwordLength.toString())
+  return passwordLength
+}
 
 
 // Get references to the #generate element
