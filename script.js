@@ -30,19 +30,48 @@ var getPasswordLength = function() {
   return passwordLength
 };
 
-// Confirm if lowercase letters should be used.
-var confirmLowercase = function() {
-  return confirm("Use Lowercase characters?");
-};
+// Main function for generating password.
+var generatePassword = function() {
+  var useLower = false;
+  var useUpper = false;
+  var useNumbers = false;
+  var useSpecialCharacters = false;
 
-// Confirm if uppercase letters should be used.
-var confirmUppercase = function() {
-  return confirm("Use Uppercase characters?");
-};
+  // Get the length of a password.
+  var passwordLength = getPasswordLength();
 
-// Confirm if numbers should be used.
-var confirmNumbers = function() {
-  return confirm("Use Numbers?");
+  // Get criteria, with at least one selected, from user
+  while (!useLower && !useUpper && !useLower && !useNumbers && !useSpecialCharacters) {
+    var useLower = confirm("Use Lowercase characters?");
+    var useUpper = confirm("Use Uppercase characters?");
+    var useNumbers = confirm("Use Numbers?");
+    var useSpecialCharacters = confirm("Use Special Characters?");
+
+    if (!useLower && !useUpper && !useLower && !useNumbers && !useSpecialCharacters) {
+      alert("You must select at least one type. Please try again.");
+    }
+  }
+
+  /* Create password using criteria given. Must be at least one character for each type selected.
+     To do this, We'll create a random one for each type selected, then fill the rest with random
+     characters following criteria. Once the length is correct, we'll jumble the characters.
+     Example:
+     Using Lower, Upper, Number, SC, and 8 characters long:
+     Random lower: u
+     Random upper: P
+     Random digit: 4
+     Random SC: ]
+     Random remaining: &Rjk
+     Random password: &]uRPj4k
+
+     Create functions:
+        GetRandomLowercase
+        GetRandomUppercase
+        GetRandomNumber
+        GetRandomSpecialCharacter
+        GenerateRandomString
+        RandomizeString
+  */
 };
 
 // Get references to the #generate element
