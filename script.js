@@ -28,13 +28,17 @@ var getPasswordLength = function() {
   }
   console.log("Password Length chosen: " + passwordLength.toString())
   return passwordLength
-}
+};
 
 // Confirm if lowercase letters should be used.
-var confirmLowerCase = function() {
+var confirmLowercase = function() {
   return confirm("Use Lowercase characters?");
+};
 
-}
+// Confirm if uppercase letters should be used.
+var confirmUppercase = function() {
+  return confirm("Use Uppercase characters?");
+};
 
 
 // Get references to the #generate element
