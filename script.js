@@ -40,6 +40,10 @@ var confirmUppercase = function() {
   return confirm("Use Uppercase characters?");
 };
 
+// Confirm if numbers should be used.
+var confirmNumbers = function() {
+  return confirm("Use Numbers?");
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
