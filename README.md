@@ -45,4 +45,4 @@ The challenge grading is based on the following:
 [https://Bycicleace.github.io/password-generator](https://Bycicleace.github.io/password-generator)
 
 ## Site Preview
-Coming soon...
+![Website Preview](/webpageScreenshot.png)
