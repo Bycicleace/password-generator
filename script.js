@@ -163,11 +163,13 @@ var generatePassword = function() {
     functions.push(getRandomSpecialCharacter);
   }
 
+  // Put at least one of each applicable character types in the password.
   var returnString = ""
   for (i = 0; i < functions.length; i++) {
     returnString = returnString + functions[i]();
   }
   
+  // Generate random characters that are left.
   while (returnString.length < passwordLength) {
     returnString = returnString + functions[Math.floor(Math.random() * functions.length)]();
   }
