@@ -1,7 +1,7 @@
 // Assignment code here
 
 /*
-  PSEUDOCODE
+  Main Process
 
   On button click, do the following:
   1. Prompt for length of password (number between 8 and 128)
@@ -13,6 +13,22 @@
   7. Display password in the box.
 
 */
+
+// the specialCharacters array gathers all ascii characters that are not functions,
+// spaces, numbers, or letters.
+var specialCharacters = [];
+for (i = 33; i <= 47; i++) {
+  specialCharacters.push(String.fromCharCode(i));
+}
+for (i = 58; i <= 64; i++) {
+  specialCharacters.push(String.fromCharCode(i));
+}
+for (i = 91; i <= 96; i++) {
+  specialCharacters.push(String.fromCharCode(i));
+}
+for (i = 123; i <= 126; i++) {
+  specialCharacters.push(String.fromCharCode(i));
+}
 
 // Prompt for length of password between 8 and 128 characters.
 // Returns succesfully prompted length
@@ -29,6 +45,44 @@ var getPasswordLength = function() {
   console.log("Password Length chosen: " + passwordLength.toString())
   return passwordLength
 };
+
+// Gets a random character in an Ascii range. Can use this function for
+// lowercase letters, uppercase letters, and everything.
+var getRandomAsciiCharacter = function(min, max) {
+  // takes the floor of a random number between min and max.
+  var index = min + Math.floor((Math.random() * (max - min)));
+
+  // Change the index into the Ascii representation of it
+  var asciiCharacter = String.fromCharCode(index);
+
+  // Returns character
+  return asciiCharacter;
+}
+
+var getRandomLowercase = function() {
+  return getRandomAsciiCharacter(97,122);
+}
+
+var getRandomUppercase = function() {
+  return getRandomAsciiCharacter(65,90);
+}
+
+// This function returns a digit 0 - 9
+var getRandomDigit = function() {
+  // the lowest digit is 0, and the highest is 9.
+  var randomNumber = Math.floor(Math.random() * 10);
+
+  // Return the number generated.
+  return randomNumber;
+}
+
+var getRandomSpecialCharacter = function() {
+  // generates a random index for the specialCharacters array.
+  var index = Math.floor(Math.random() * specialCharacters.length);
+
+  // Returns the character at that index.
+  return specialCharacters[index];
+}
 
 // Main function for generating password.
 var generatePassword = function() {
@@ -72,6 +126,35 @@ var generatePassword = function() {
         GenerateRandomString
         RandomizeString
   */
+
+  // For this, an array of applicable functions is created. Each function that is needed will
+  // get added to the array. Then, we'll call each function, one at a time, then randomly until the
+  // length requirement is met.
+  var functions = [];
+
+  if (useLower) {
+    functions.push(getRandomLowercase);
+  }
+  if (useUpper) {
+    functions.push(getRandomUppercase);
+  }
+  if (useNumbers) {
+    functions.push(getRandomDigit);
+  }
+  if (useSpecialCharacters) {
+    functions.push(getRandomSpecialCharacter);
+  }
+
+  var returnString = ""
+  for (i = 0; i < functions.length; i++) {
+    returnString = returnString + functions[i]();
+  }
+  
+  while (returnString.length < passwordLength) {
+    returnString = returnString + functions[Math.floor(Math.random() * functions.length)]();
+  }
+
+  return returnString;
 };
 
 // Get references to the #generate element
