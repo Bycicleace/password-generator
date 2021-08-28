@@ -60,11 +60,11 @@ var getRandomAsciiCharacter = function(min, max) {
 }
 
 var getRandomLowercase = function() {
-  return getRandomAsciiCharacter(97,122);
+  return getRandomAsciiCharacter(97,123);
 }
 
 var getRandomUppercase = function() {
-  return getRandomAsciiCharacter(65,90);
+  return getRandomAsciiCharacter(65,91);
 }
 
 // This function returns a digit 0 - 9
@@ -82,6 +82,24 @@ var getRandomSpecialCharacter = function() {
 
   // Returns the character at that index.
   return specialCharacters[index];
+}
+
+var ScrambleString = function(input) {
+  // split string into an array
+  var splitString = input.split("");
+  var outputString = ""
+
+  while (splitString.length > 0) {
+    // Get a random index of new array
+    var randomIndex = Math.floor(Math.random() * splitString.length);
+
+    // Add random character to output string, then remove from array
+    outputString = outputString + splitString[randomIndex];
+    splitString.splice(randomIndex,1);
+  }
+
+  // After the array is exhausted, return the new, scrambled string.
+  return outputString;
 }
 
 // Main function for generating password.
@@ -154,7 +172,9 @@ var generatePassword = function() {
     returnString = returnString + functions[Math.floor(Math.random() * functions.length)]();
   }
 
-  return returnString;
+  // Scramble the string one time to get rid of the idea that the first so many digits (1 - 4) will
+  // always be a lowercase, uppercase, digit, special character.
+  return ScrambleString(returnString);
 };
 
 // Get references to the #generate element
