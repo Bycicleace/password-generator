@@ -1,48 +1,37 @@
-# Password Generator Starter Code
-
-## Project Details
-
-
-### User Story
-As an employee with access to sensitive data, I want to randomly generate a password that meets certain criteria, so that I can create a strong password that provides greater security.
-
-### Acceptance Criteria
-Given I need a new, secure password:
-- When I click the button to generate a password, then I am presented with a series of prompts for password criteria
-- When prompted for password criteria, then I select which criteria to include in the password
-- When prompted for the length of the password, then I choose a length of at least 8 characters and no more than 128 characters
-- When asked for character types to include in the password, then I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-- When I answer each prompt, then my input should be validated and at least one character type should be selected
-- When all prompts are answered, then a password is generated that matches the selected criteria
-- When the password is generated, then the password is either displayed in an alert or written to the page.
-
-### Grading Requirements
-The challenge grading is based on the following:
-
-#### Technical Acceptance Criteria: 40%
-- Satisfies the acceptance criteria plus the following:
-    - The Challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-#### Deployment: 32%
-- Application is deployed at live URL.
-- Application loads with no errors.
-- Application GitHub URL submitted.
-- GitHub repository that contains the application code.
-
-#### Application Quality: 15%
-- Application user experience is intuitive and easy to navigate.
-- Application user interface style is clean and polished.
-- Application resembles the mock-up functionality provided in the Challenge instructions.
-
-#### Repository Quality: 13%
-- Repository has a unique name.
-- Repository follows best practices for file structure and naming conventions.
-- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-- Repository contains multiple descriptive commit messages
-- Repository contains quality README file with description, screenshot and link to deployed application.
+# Password Generator Webpage
 
 ## Link to site
 [https://Bycicleace.github.io/password-generator](https://Bycicleace.github.io/password-generator)
 
 ## Site Preview
-![Website Preview](/webpageScreenshot.png)
+![Website Preview](/images/webpageScreenshot.png)
+
+## Description
+The purpose of this webpage is to collect criteria for generating a password, and then to generate a password for the user to use based on the criteria provided.
+
+## Usage
+1. Go to [https://Bycicleace.github.io/password-generator](https://Bycicleace.github.io/password-generator)
+2. You are presented with this screen:
+![Initial Screen](/images/initialScreen.png)
+3. To generate a password, click the "Generate Password" button.
+4. In the first prompt, enter the length you would like the password to be.
+![Password Length prompt](/images/length.png)
+5. The following prompts ask for the criteria for the password. If you would like to use lowercase letters, hit OK at this prompt, otherwise, hit Cancel
+![Lowercase Letters prompt](/images/lowercase.png)
+6. At the promt for uppercase letters, hit OK to use them, Cancel to exclude them.
+![Uppercase Letters prompt](/images/uppercase.png)
+7. At the prompt for numbers, hit OK to use them, Cancel to exclude them.
+![Numbers prompt](/images/numbers.png)
+8. At the promt for special characters, hit OK to use them, Cancel to exclude them.
+![Special Characters prompt](/images/specialCharacters.png)
+9. You must select at least one of the four criteria. If you do not, you will be prompted for them again.
+10. Once all criteria are gathered, a password is displayed. Copy this password to use it.
+![Generated Password screen](/images/generatedPassword.png)
+
+## Support
+If you have any issues with this page, you may email me at
+[mailto:elliott.kvamme@gmail.com](elliott.kvamme@gmail.com)
+
+## Author
+Elliott Kvamme
+2021
